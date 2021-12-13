@@ -161,3 +161,15 @@ tallh = T*h;
 H = mat(tallh);
 
 end
+
+function X = mat(x,n)
+% see https://github.com/sqlp/sedumi/blob/master/mat.m
+
+if nargin < 2
+    n = floor(sqrt(length(x)));
+    if (n*n) ~= length(x)
+        error('Argument X has to be a square matrix')
+    end
+end
+X = reshape(x,n,n);
+end
